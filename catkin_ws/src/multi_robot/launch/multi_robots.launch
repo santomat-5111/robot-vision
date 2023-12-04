@@ -1,0 +1,47 @@
+<launch>
+  <!-- No namespace here as we will share this description. 
+       Access with slash at the beginning -->
+  <param name="robot_description" command="$(find xacro)/xacro $(find penny_description)/urdf/penny.xacro"/>
+  <param name="cam_description" command="$(find xacro)/xacro $(find cam_stand_description)/urdf/cam_stand.xacro"/>
+  <!-- BEGIN ROBOT 1-->
+  <group ns="robot1">
+  
+    <param name="tf_prefix" value="robot1_tf" />
+    <include file="$(find multi_robot)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x 1 -y 1 -z 0" />
+      <arg name="robot_name"  value="Robot1" />
+    </include>
+  </group>
+
+  <!-- BEGIN ROBOT 2-->
+  <group ns="robot2">
+  
+    <param name="tf_prefix" value="robot2_tf" />
+    <include file="$(find multi_robot)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x -1 -y 1 -z 0" />
+      <arg name="robot_name"  value="Robot2" />
+    </include>
+  </group>
+
+<!-- BEGIN ROBOT 3-->
+  <group ns="robot3">
+  
+    <param name="tf_prefix" value="robot3_tf" />
+    <include file="$(find multi_robot)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x 0 -y -1 -z 0" />
+      <arg name="robot_name"  value="Robot3" />
+    </include>
+  </group>
+
+<!-- BEGIN CAM STAND-->
+  <!-- <group ns="cam_stand">
+  
+    <param name="tf_prefix" value="cam_stand_tf" />
+    <include file="$(find multi_robot)/launch/camera.launch" >
+    <arg name="init_pose" value="-x -4.5 -y 0 -z 0" />
+    <arg name="robot_name"  value="cam_bot" />
+    </include>
+  </group> -->
+
+</launch>
+

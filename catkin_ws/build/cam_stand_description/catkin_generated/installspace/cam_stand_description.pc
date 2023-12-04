@@ -1,0 +1,8 @@
+prefix=/home/santo/catkin_ws/install
+
+Name: cam_stand_description
+Description: Description of cam_stand_description
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,2 @@
+cam_stand_description:multi_robot:penny_description
+-DCATKIN_DEVEL_PREFIX=/home/santo/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/santo/catkin_ws/install -G Unix Makefiles
